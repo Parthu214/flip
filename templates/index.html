@@ -1,0 +1,4 @@
+{% extends "base.html" %}{% block title %}MiniShop Store{% endblock %}{% block content %}
+<section class="hero"><h1>Simple shopping, made easy.</h1><p>Browse products and place a sample order.</p></section>
+<h2>Products</h2><section class="grid">{% for p in products %}<article class="card"><div class="emoji">🛍️</div><h3>{{ p.name }}</h3><p>{{ p.description }}</p><strong>₹{{ "%.2f"|format(p.price) }}</strong>
+<form method="post" action="/order/{{ p.id }}"><button>Buy Now</button></form></article>{% endfor %}</section>{% endblock %}
